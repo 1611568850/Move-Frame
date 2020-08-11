@@ -1,4 +1,4 @@
-function move(obj,name,target){
+function move(obj,name,target,fn){
 				clearInterval(obj.timer)
 				// alert(parseInt(getComputedStyle(oDiv1).width))
 				obj.timer=setInterval(function(){
@@ -11,6 +11,7 @@ function move(obj,name,target){
 						}
 					if (nowStyle==target) {
 						clearInterval(obj.timer)
+						if(fn){fn()}
 					} else{
 						obj.style[name]=nowStyle+speed+'px'
 					}
